@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/05/2015 09:40:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pro.modelo.entidad.Viaje" table="VIAJE" schema="PROYECTO_F" optimistic-lock="version">
+        <id name="idViaje" type="string">
+            <column name="ID_VIAJE" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="vehiculo" class="pro.modelo.entidad.Vehiculo" fetch="select">
+            <column name="ID_VEHICULO" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ciudadByIdCiudaddestino" class="pro.modelo.entidad.Ciudad" fetch="select">
+            <column name="ID_CIUDADDESTINO" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="ciudadByIdCiudad" class="pro.modelo.entidad.Ciudad" fetch="select">
+            <column name="ID_CIUDAD" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personal" class="pro.modelo.entidad.Personal" fetch="select">
+            <column name="ID_PERSONA" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pagos" class="pro.modelo.entidad.Pagos" fetch="select">
+            <column name="ID_PAGOS" length="30" not-null="true" />
+        </many-to-one>
+        <property name="fechaViaje" type="string">
+            <column name="FECHA_VIAJE" length="30" />
+        </property>
+        <property name="horaViaje" type="string">
+            <column name="HORA_VIAJE" length="30" />
+        </property>
+        <property name="total" type="string">
+            <column name="TOTAL" length="30" />
+        </property>
+        <set name="boletos" table="BOLETO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_VIAJE" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Boleto" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/05/2015 09:40:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pro.modelo.entidad.Boleto" table="BOLETO" schema="PROYECTO_F" optimistic-lock="version">
+        <id name="idBoleto" type="string">
+            <column name="ID_BOLETO" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pasajero" class="pro.modelo.entidad.Pasajero" fetch="select">
+            <column name="ID_PERSONA" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="viaje" class="pro.modelo.entidad.Viaje" fetch="select">
+            <column name="ID_VIAJE" length="30" not-null="true" />
+        </many-to-one>
+        <property name="precioPagar" type="string">
+            <column name="PRECIO_PAGAR" length="30" />
+        </property>
+        <property name="total" type="string">
+            <column name="TOTAL" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

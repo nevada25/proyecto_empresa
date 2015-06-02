@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/05/2015 09:40:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pro.modelo.entidad.Personal" table="PERSONAL" schema="PROYECTO_F" optimistic-lock="version">
+        <id name="idPersona" type="string">
+            <column name="ID_PERSONA" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipo" class="pro.modelo.entidad.Tipo" fetch="select">
+            <column name="ID_TIPO" length="30" not-null="true" />
+        </many-to-one>
+        <property name="nroLicencia" type="string">
+            <column name="NRO_LICENCIA" length="60" />
+        </property>
+        <set name="viajes" table="VIAJE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Viaje" />
+        </set>
+    </class>
+</hibernate-mapping>

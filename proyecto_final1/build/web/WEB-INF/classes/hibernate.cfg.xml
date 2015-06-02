@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@GOKU:1522:oracl</property>
+    <property name="hibernate.connection.username">proyecto_f</property>
+    <property name="hibernate.connection.password">proye</property>
+    <mapping resource="pro/modelo/pojos/Ciudad.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Usuario.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Personal.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Color.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Viaje.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Vehiculo.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Tipo.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Modelo.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Boleto.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Pasajero.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Persona.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Pagos.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Marca.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

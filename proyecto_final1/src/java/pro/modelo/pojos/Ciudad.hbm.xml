@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/05/2015 09:40:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pro.modelo.entidad.Ciudad" table="CIUDAD" schema="PROYECTO_F" optimistic-lock="version">
+        <id name="idCiudad" type="string">
+            <column name="ID_CIUDAD" length="30" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ciudad" class="pro.modelo.entidad.Ciudad" fetch="select">
+            <column name="ID_CIUDADDESTINO" length="30" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="60" />
+        </property>
+        <set name="ciudads" table="CIUDAD" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CIUDADDESTINO" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Ciudad" />
+        </set>
+        <set name="viajesForIdCiudaddestino" table="VIAJE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CIUDADDESTINO" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Viaje" />
+        </set>
+        <set name="viajesForIdCiudad" table="VIAJE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CIUDAD" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Viaje" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/05/2015 09:40:06 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pro.modelo.entidad.Persona" table="PERSONA" schema="PROYECTO_F" optimistic-lock="version">
+        <id name="idPersona" type="string">
+            <column name="ID_PERSONA" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombres" type="string">
+            <column name="NOMBRES" length="60" />
+        </property>
+        <property name="apePat" type="string">
+            <column name="APE_PAT" length="60" />
+        </property>
+        <property name="apeMat" type="string">
+            <column name="APE_MAT" length="60" />
+        </property>
+        <property name="dni" type="string">
+            <column name="DNI" length="8" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="SEXO" length="10" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="100" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="9" />
+        </property>
+        <set name="vehiculos" table="VEHICULO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" length="30" not-null="true" />
+            </key>
+            <one-to-many class="pro.modelo.entidad.Vehiculo" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+SMAP
+inicio_jsp.java
+JSP
+*S JSP
+*F
++ 0 cabeza.jsp
+cabeza.jsp
++ 1 inicio.jsp
+inicio.jsp
++ 2 pie.jsp
+pie.jsp
+*L
+5,44:50
+49:94,2
+50,8:96
+58:104,2
+59,35:106
+1#1,106:141
+1#2,13:246
+*E

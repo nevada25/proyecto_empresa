@@ -1,0 +1,28 @@
+form{
+	width:400px;
+	text-align:center;
+	
+}
+.formu{
+	background: url(file/img/fondo.jpg) #000000;
+	width:600px;
+	background-position:center;
+	padding:5px;
+	margin:120px;
+	border-radius:1em;
+	height:250px;
+	
+}
+input.btn-default{
+	padding:12px;
+	margin:30px;
+}
+h1{
+	text-align:center;
+	color: #fff;
+	font-weight:normal;
+	font-size:30pt;
+	margin:30px 0px;
+	font-family: 'Spicy Rice', cursive;
+}
+
